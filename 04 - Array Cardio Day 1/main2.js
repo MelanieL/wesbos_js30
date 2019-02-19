@@ -23,7 +23,12 @@ $( document ).ready(function() {
 
     // Array.prototype.filter()
     // 1. Filter the list of inventors for those who were born in the 1500's
-
+        const invFromFC = inventors.filter ((inventor) => {
+            if(inventor.year >= 1500 && inventor.year < 1600){
+                return inventor;
+            }
+        });
+        console.log(invFromFC);
     
     // Array.prototype.map()
     // Map takes in raw material and spits back out in array of same length
