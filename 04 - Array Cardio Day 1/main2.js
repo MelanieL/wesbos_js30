@@ -28,11 +28,13 @@ $( document ).ready(function() {
                 return inventor;
             }
         });
-        console.log(invFromFC);
+        // console.log(invFromFC);
     
     // Array.prototype.map()
     // Map takes in raw material and spits back out in array of same length
     // 2. Give us an array of the inventors' first and last names
+        const invFullNames = inventors.map(inventor => `${inventor.first} ${inventor.last}`);
+        // console.log(invFullNames);
 
 
     // Array.prototype.sort()
