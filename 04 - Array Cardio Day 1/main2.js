@@ -40,14 +40,40 @@ $( document ).ready(function() {
     // Array.prototype.sort()
     // For sort, you get two items and you sort those two items and give values of 1 and -1.
     // 3. Sort the inventors by birthdate, oldest to youngest
+        // const invNewOrder = inventors.sort ((a,b) => {
+        //     if(a.year > b.year){
+        //         return 1;
+        //     }
+        //     else{
+        //         return -1;
+        //     }
+        // });
+        // use turnery operator instead:
+        const invNewOrder = inventors.sort((a,b) => a.year >= b.year ? +1 : -1);
+        // console.log(invNewOrder);
 
 
     // Array.prototype.reduce()
     // Take items in and allow you to build something on every single one
     // 4. How many years did all the inventors live?
+        const totalYears = inventors.reduce((total, inventor) => {
+            return total + (inventor.passed - inventor.year);
+        }, 0);
+        // console.log(totalYears);
 
 
-    // 5. Sort the inventors by years lived
+    // 5. Sort the inventors by years lived (wasn't clear, so I'll do oldest to youngest)
+        const invDescending = inventors.sort((a,b) => {
+            const invAAge = a.passed - a.year;
+            const invBAge = b.passed - b.year;
+            if(invAAge < invBAge){
+                return +1;
+            }
+            else{
+                return -1;
+            }
+        });
+        // console.table(invDescending);
 
 
     // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
