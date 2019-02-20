@@ -78,6 +78,13 @@ $( document ).ready(function() {
 
     // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
     // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
+    // Remember to do in console
+        const listContainer = document.querySelector('.mw-category');
+        const links = Array.from(listContainer.querySelectorAll('a'));
+        const streets = links
+                            .map(streetName => streetName.textContent)
+                            .filter(streetName => streetName.includes('de'));
+
 
 
     // 7. sort Exercise
