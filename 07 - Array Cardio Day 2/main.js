@@ -15,15 +15,73 @@
       {text: 'Nice Nice Nice!', id: 542328 }
     ];
 
-    // Some and Every Checks
+    // Some and Every Checks (Array methods for data)
     // Array.prototype.some() // is at least one person 19 or older?
+
+    // const isAdult = people.some(function(person) {
+    //     const currentYear = (new Date()).getFullYear();
+    //     if(currentYear - person.year >= 19) {
+    //         return true;
+    //     }
+    // });
+
+    // OR
+
+    const isAdult = people.some(person => {
+        const currentYear = (new Date()).getFullYear();
+        return currentYear - person.year >= 19;
+    });
+
+    // console.log({isAdult});
+
     // Array.prototype.every() // is everyone 19 or older?
+
+    const allAdults = people.every(person => {
+        const currentYear = (new Date()).getFullYear();
+        return currentYear - person.year >= 19;
+    });
+
+    // console.log(allAdults);
+
 
     // Array.prototype.find()
     // Find is like filter, but instead returns just the one you are looking for
     // find the comment with the ID of 823423
 
+    // const comment = comments.find(function(comment) {
+    //     if(comment.id === 823423) {
+    //         return true;
+    //     }
+    // });
+
+    // console.log(comment);
+
+    const comment = comments.find(comment => 
+        // My answer, which worked (had brackets)
+        // return (comment.id === 823423 ? true : false);
+        // His answer is cleaner:
+        comment.id === 823423);
+
+    // console.log(comment);
+
+    // One way to delete:
+    comments.splice(index, 1);
+
+    console.table(comment);
+
+    // Or, popular method in the redux world (create new array, so you still have the original):
+    // const newComments = [
+    //     ...comments.slice(0, index),
+    //     ...comments.slice(index + 1)
+    // ];
+
+
     // Array.prototype.findIndex()
     // Find the comment with this ID
     // delete the comment with the ID of 823423
+    // Note: In order to delete something from an array, you need to know where it is
+
+
+
+
 
