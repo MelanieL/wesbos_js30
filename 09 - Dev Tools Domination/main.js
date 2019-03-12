@@ -7,16 +7,23 @@ function makeGreen() {
 }
 
 // Regular
+console.log('hello');
 
 // Interpolated
+// Will pass second through %s
+console.log('Hello I am a %s string!', 'poop')
 
 // Styled
+console.log('%c I am some great text', 'font-size:50px; backgound:red;')
 
 // warning!
+console.warn('OH NOOOO');
 
 // Error :|
+console.error('Shit!');
 
 // Info
+console.info('Crocodiles eat 3-4 people per year');
 
 // Testing
 
