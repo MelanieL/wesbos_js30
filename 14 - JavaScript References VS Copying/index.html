@@ -13,11 +13,11 @@
     // console.log(age, age2);
     // age = 200;
     // console.log(age, age2);
-
-    // let name = 'Wes';
+    
+    // let name = 'Mel';
     // let name2 = name;
     // console.log(name, name2);
-    // name = 'wesley';
+    // name = 'Melanie';
     // console.log(name, name2);
 
     // Let's say we have an array
@@ -27,8 +27,11 @@
     const team = players;
 
     console.log(players, team);
+
+    team[3] = 'Lux';
+    // Note: If you update an array it will always reference back, which isn't what happened in the last example
+
     // You might think we can just do something like this:
-    // team[3] = 'Lux';
 
     // however what happens when we update that array?
 
@@ -40,6 +43,8 @@
 
     // So, how do we fix this? We take a copy instead!
     const team2 = players.slice();
+    console.log(team2);
+    // Note: Running slice on the original array without referencing any numbers will actually just take a copy of the whole array
 
     // one way
 
@@ -48,9 +53,8 @@
 
     // or use the new ES6 Spread
     const team4 = [...players];
-    team4[3] = 'heeee hawww';
-    console.log(team4);
 
+    // also can do:
     const team5 = Array.from(players);
 
     // now when we update it, the original one isn't changed
@@ -63,18 +67,21 @@
       age: 80
     };
 
-    // and think we make a copy:
+    // and think we make a copy (but it doesn't):
     // const captain = person;
     // captain.number = 99;
+    // console.log(person);
 
     // how do we take a copy instead?
-    const cap2 = Object.assign({}, person, { number: 99, age: 12 });
+    const cap2 = Object.assign({}, person, { number: 99 });
+    // Above we are taking a blank object, copying person, and then folding in our own info
     console.log(cap2);
 
     // We will hopefully soon see the object ...spread
-    // const cap3 = {...person};
+    const cap3 = {...person};
 
     // Things to note - this is only 1 level deep - both for Arrays and Objects. lodash has a cloneDeep method, but you should think twice before using it.
+
 
     const wes = {
       name: 'Wes',
@@ -88,9 +95,11 @@
     console.clear();
     console.log(wes);
 
-    const dev = Object.assign({}, wes);
+    const dev = Object.assign({}, wes)
 
-    const dev2 = JSON.parse(JSON.stringify(wes));
+    // In console, do dev.social.twitter = '@coolman', it will change both
+
+    // If you need to go deeper, go online and find function called "clone deep"
 
 
   </script>
